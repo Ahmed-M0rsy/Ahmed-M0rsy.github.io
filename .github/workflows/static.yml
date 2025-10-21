@@ -12,12 +12,22 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Install dependencies and build 🔧
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Or your desired Node.js version
+
+      - name: Navigate to src folder and install dependencies 🔧
         run: |
+          cd src
           npm install
-          npm run build # The build command for your project
+
+      - name: Navigate to src folder and build project 🏗️
+        run: |
+          cd src
+          npm run build
 
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: src # Change 'dist' to your project's build folder
+          folder: src/dist # The folder the action should deploy
