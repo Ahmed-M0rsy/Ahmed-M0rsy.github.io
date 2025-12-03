@@ -73,7 +73,7 @@
 
 @media (max-width: 767px) {
     .blog-container {
-        margin: 60px auto 30px;
+        margin: 100px auto 30px; /* Increased to 100px to clear the navbar */
     }
     
     .blog-post {
